@@ -39,12 +39,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //delegate methods
-    
+    /*
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
         println(testArray[row])
     }
+    */
+    let blogSegueIdentifier = "ShowTaskSegue"
+    
+    // Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == blogSegueIdentifier {
+            if let destination = segue.destinationViewController as? TaskViewController {
+                if let blogIndex = tableView.indexPathForSelectedRow()?.row {
+                    destination.blogName = testArray[blogIndex]
+                }
+            }
+        }
+    }
+    
 
 }

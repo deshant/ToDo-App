@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960CA1AD1AE2737500D701BF /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CA1AC1AE2737500D701BF /* TaskViewController.swift */; };
 		96986F601AE16A08000B663C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986F5F1AE16A08000B663C /* AppDelegate.swift */; };
 		96986F631AE16A09000B663C /* ToDo_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96986F611AE16A09000B663C /* ToDo_App.xcdatamodeld */; };
 		96986F651AE16A09000B663C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986F641AE16A09000B663C /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		960CA1AC1AE2737500D701BF /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		96986F5A1AE16A08000B663C /* ToDo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96986F5E1AE16A08000B663C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96986F5F1AE16A08000B663C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				96986F5F1AE16A08000B663C /* AppDelegate.swift */,
 				96986F641AE16A09000B663C /* ViewController.swift */,
 				96986F661AE16A09000B663C /* Main.storyboard */,
+				960CA1AC1AE2737500D701BF /* TaskViewController.swift */,
 				96986F691AE16A09000B663C /* Images.xcassets */,
 				96986F6B1AE16A09000B663C /* LaunchScreen.xib */,
 				96986F611AE16A09000B663C /* ToDo_App.xcdatamodeld */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96986F651AE16A09000B663C /* ViewController.swift in Sources */,
+				960CA1AD1AE2737500D701BF /* TaskViewController.swift in Sources */,
 				96986F601AE16A08000B663C /* AppDelegate.swift in Sources */,
 				96986F631AE16A09000B663C /* ToDo_App.xcdatamodeld in Sources */,
 			);
@@ -411,6 +415,7 @@
 				96986F7E1AE16A0A000B663C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96986F7F1AE16A0A000B663C /* Build configuration list for PBXNativeTarget "ToDo AppTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				96986F811AE16A0A000B663C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
