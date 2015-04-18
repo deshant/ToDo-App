@@ -17,10 +17,10 @@ class TaskViewController: UIViewController {
 
     }
     
-    var blogName = String()
+    var Name = String()
     
     override func viewWillAppear(animated: Bool) {
-        taskName.text = blogName
+        taskName.text = Name
     }
 
     /*
