@@ -11,26 +11,18 @@ import UIKit
 class TaskViewController: UIViewController {
 
     @IBOutlet weak var taskName: UILabel!
+    @IBOutlet weak var notesData: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    var Name = String()
+    var Title = String()
+    var Note = String()
     
     override func viewWillAppear(animated: Bool) {
-        taskName.text = Name
+        taskName.text = Title
+        notesData.text = Note
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

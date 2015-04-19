@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let managedObjectContext =
+    (UIApplication.sharedApplication().delegate
+        as AppDelegate).managedObjectContext
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBox: UITextField!
     
     
-    let testArray = ["Cell one","Cell Two","Cell Three","Cell four"]
+    var titleArray = [String]()
+    var notesArray = [String]()
+    var foundTitle = String()
+    var foundNote = String()
     let cellID = "textCell"
     
     override func viewDidLoad() {
@@ -22,7 +30,60 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
         searchBox.text = ""
+        getData()
+        //insert()
     }
+    
+    func getData() {
+        let entityDescription =
+        NSEntityDescription.entityForName("Tasks",
+            inManagedObjectContext: managedObjectContext!)
+        
+        let request = NSFetchRequest()
+        request.entity = entityDescription
+        
+        var error: NSError?
+        
+        var objects = managedObjectContext?.executeFetchRequest(request,
+            error: &error)
+        
+        if let results = objects {
+            
+            if results.count > 0 {
+                
+                for element in results {
+                    let match = element as NSManagedObject
+                    
+                    if let title: String = match.valueForKey("title") as? String{
+                            titleArray.append(title)
+                    }
+                    if let note: String = match.valueForKey("notes") as? String{
+                        notesArray.append(note)
+                    }
+                }
+            }
+        }
+
+    }
+    func insert(){
+        let entityDescription =
+        NSEntityDescription.entityForName("Tasks",
+            inManagedObjectContext: managedObjectContext!)
+        
+        let task = Tasks(entity: entityDescription!,
+            insertIntoManagedObjectContext: managedObjectContext)
+        
+        task.title = "Test"
+        task.notes = "works"
+        
+        var error: NSError?
+        
+        managedObjectContext?.save(&error)
+        
+        if let err = error {
+        }
+    }
+    
     
     //data source methods
     
@@ -30,13 +91,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        //println(titleArray.count)
+        return titleArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as UITableViewCell
         
         let row = indexPath.row
-        cell.textLabel?.text = testArray[row]
+        cell.textLabel?.text = titleArray[row]
         
         return cell
     }
@@ -47,12 +109,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let row = indexPath.row
-        println(testArray[row])
+        println(titleArray[row])
     }
     */
     let SegueIdentifier = "ShowTaskSegue"
     let SearchSegue = "searchSegue"
-    var i = 0
     
     // Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -60,13 +121,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == SegueIdentifier {
             if let destination = segue.destinationViewController as? TaskViewController {
                 if let Index = tableView.indexPathForSelectedRow()?.row {
-                    destination.Name = testArray[Index]
+                    destination.Title = titleArray[Index]
+                    destination.Note = notesArray[Index]
                 }
             }
         }
         else if segue.identifier == SearchSegue {
             if let destination = segue.destinationViewController as? TaskViewController {
-                    destination.Name = testArray[i]
+                destination.Title = foundTitle
+                destination.Note = foundNote
             }
         }
     }
@@ -75,15 +138,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func searchTask(sender: AnyObject) {
         searchBox.resignFirstResponder()
         var inputText = searchBox.text!
-        i = 0
-        for element in testArray{
-            if element == inputText {
+        
+        let entityDescription =
+        NSEntityDescription.entityForName("Tasks",
+            inManagedObjectContext: managedObjectContext!)
+        
+        let request = NSFetchRequest()
+        request.entity = entityDescription
+        
+        let pred = NSPredicate(format: "(title = %@)", inputText)
+        request.predicate = pred
+        
+        var error: NSError?
+        
+        var objects = managedObjectContext?.executeFetchRequest(request,
+            error: &error)
+        
+        if let results = objects {
+            
+            if results.count > 0 {
+                let match = results[0] as NSManagedObject
+                foundTitle = match.valueForKey("title") as String
+                foundNote = match.valueForKey("notes") as String
                 performSegueWithIdentifier(SearchSegue, sender: self)
-                break
             }
-            i++
+            else {
+                searchBox.text = "Task not found"
+            }
+            }
         }
-        searchBox.text = "Task not found"
-    }
-
 }

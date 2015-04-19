@@ -106,8 +106,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-nt-dos">
-                                <rect key="frame" x="16" y="216" width="568" height="206"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-nt-dos">
+                                <rect key="frame" x="16" y="216" width="568" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ncI-oa-Fcf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -115,8 +118,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-KL-gsP">
                                 <rect key="frame" x="16" y="168" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="bzt-mb-ASE"/>
+                                    <constraint firstAttribute="height" constant="40" id="myx-Fc-J1B"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erV-aU-lEi">
+                                <rect key="frame" x="16" y="294" width="568" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -124,16 +133,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="O6o-KL-gsP" firstAttribute="trailing" secondItem="lpo-nt-dos" secondAttribute="trailing" id="Io0-V8-8P2"/>
-                            <constraint firstItem="lpo-nt-dos" firstAttribute="top" secondItem="O6o-KL-gsP" secondAttribute="bottom" constant="8" symbolic="YES" id="KoW-uT-ILT"/>
-                            <constraint firstItem="lpo-nt-dos" firstAttribute="leading" secondItem="O6o-KL-gsP" secondAttribute="leading" id="LWQ-qQ-S8t"/>
-                            <constraint firstItem="O6o-KL-gsP" firstAttribute="trailing" secondItem="ezO-wQ-gD3" secondAttribute="trailingMargin" id="cwr-rg-ub4"/>
-                            <constraint firstItem="O6o-KL-gsP" firstAttribute="top" secondItem="s03-Mm-ZF2" secondAttribute="bottom" constant="104" id="h1x-Nq-f17"/>
-                            <constraint firstItem="lpo-nt-dos" firstAttribute="leading" secondItem="ezO-wQ-gD3" secondAttribute="leadingMargin" id="icI-KD-RYS"/>
-                            <constraint firstItem="Gl9-kA-Xsm" firstAttribute="top" secondItem="lpo-nt-dos" secondAttribute="bottom" constant="178" id="q68-Pr-OLT"/>
+                            <constraint firstItem="lpo-nt-dos" firstAttribute="trailing" secondItem="ezO-wQ-gD3" secondAttribute="trailingMargin" id="CkN-74-Boc"/>
+                            <constraint firstItem="erV-aU-lEi" firstAttribute="top" secondItem="lpo-nt-dos" secondAttribute="bottom" constant="8" symbolic="YES" id="DWg-a2-Pp0"/>
+                            <constraint firstItem="lpo-nt-dos" firstAttribute="top" secondItem="O6o-KL-gsP" secondAttribute="bottom" constant="8" symbolic="YES" id="K8h-Bc-eTx"/>
+                            <constraint firstItem="erV-aU-lEi" firstAttribute="leading" secondItem="lpo-nt-dos" secondAttribute="leading" id="cb4-Fs-8jT"/>
+                            <constraint firstItem="O6o-KL-gsP" firstAttribute="top" secondItem="s03-Mm-ZF2" secondAttribute="bottom" constant="104" id="gih-jb-DMm"/>
+                            <constraint firstItem="O6o-KL-gsP" firstAttribute="leading" secondItem="ezO-wQ-gD3" secondAttribute="leadingMargin" id="m0W-s0-mVt"/>
+                            <constraint firstItem="O6o-KL-gsP" firstAttribute="trailing" secondItem="lpo-nt-dos" secondAttribute="trailing" id="neR-MG-amw"/>
+                            <constraint firstItem="lpo-nt-dos" firstAttribute="leading" secondItem="O6o-KL-gsP" secondAttribute="leading" id="sdc-Nb-5A2"/>
+                            <constraint firstItem="erV-aU-lEi" firstAttribute="trailing" secondItem="lpo-nt-dos" secondAttribute="trailing" id="uhz-AM-HDV"/>
+                            <constraint firstItem="Gl9-kA-Xsm" firstAttribute="top" secondItem="erV-aU-lEi" secondAttribute="bottom" constant="226" id="w54-tA-qIS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="notesData" destination="erV-aU-lEi" id="8t5-Mp-Luc"/>
                         <outlet property="taskName" destination="lpo-nt-dos" id="Blk-yy-CuK"/>
                     </connections>
                 </viewController>
