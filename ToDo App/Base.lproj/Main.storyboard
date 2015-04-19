@@ -56,7 +56,8 @@
                                     <constraint firstAttribute="width" constant="113" id="LTb-2j-V5Z"/>
                                 </constraints>
                                 <state key="normal" title="Search Task">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="searchTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vfd-XC-1xb"/>
@@ -67,6 +68,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nA-cM-WRJ">
+                                <rect key="frame" x="404" y="110" width="121" height="30"/>
+                                <state key="normal" title="Delete Task">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QWB-u4-b3T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,9 +88,12 @@
                             <constraint firstItem="hNS-3X-yBK" firstAttribute="centerX" secondItem="riy-04-M47" secondAttribute="centerX" id="AMV-U9-Ibc"/>
                             <constraint firstItem="FTy-LY-Axk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="IMm-e8-Xhs"/>
                             <constraint firstItem="riy-04-M47" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="QuM-Xx-RJB"/>
+                            <constraint firstItem="5nA-cM-WRJ" firstAttribute="trailing" secondItem="FTy-LY-Axk" secondAttribute="trailing" id="Tms-wU-TYP"/>
+                            <constraint firstItem="5nA-cM-WRJ" firstAttribute="baseline" secondItem="yD8-ON-ZkC" secondAttribute="baseline" id="c55-vh-tt9"/>
                             <constraint firstItem="riy-04-M47" firstAttribute="top" secondItem="hNS-3X-yBK" secondAttribute="bottom" constant="8" symbolic="YES" id="cJl-3J-DpX"/>
                             <constraint firstItem="hNS-3X-yBK" firstAttribute="centerX" secondItem="yD8-ON-ZkC" secondAttribute="centerX" id="cNI-Jv-uVT"/>
                             <constraint firstItem="FTy-LY-Axk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="59" id="lhO-RZ-BIZ"/>
+                            <constraint firstItem="5nA-cM-WRJ" firstAttribute="leading" secondItem="yD8-ON-ZkC" secondAttribute="trailing" constant="47" id="mIj-qR-qjF"/>
                             <constraint firstItem="yD8-ON-ZkC" firstAttribute="top" secondItem="FTy-LY-Axk" secondAttribute="bottom" constant="8" symbolic="YES" id="xrw-av-eRh"/>
                         </constraints>
                     </view>

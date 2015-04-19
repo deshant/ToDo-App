@@ -84,7 +84,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    
     //data source methods
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -112,6 +111,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         println(titleArray[row])
     }
     */
+    
     let SegueIdentifier = "ShowTaskSegue"
     let SearchSegue = "searchSegue"
     
@@ -167,4 +167,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             }
         }
+    @IBAction func deleteTask(sender: AnyObject) {
+        searchBox.resignFirstResponder()
+        var inputText = searchBox.text!
+        
+        let entityDescription =
+        NSEntityDescription.entityForName("Tasks",
+            inManagedObjectContext: managedObjectContext!)
+        
+        let request = NSFetchRequest()
+        request.entity = entityDescription
+        
+        request.includesSubentities = false
+        request.returnsObjectsAsFaults = false
+        
+        let pred = NSPredicate(format: "(title = %@)", inputText)
+        request.predicate = pred
+        
+        var error: NSError?
+        
+        var objects = managedObjectContext?.executeFetchRequest(request,
+            error: &error)
+        
+        if let results = objects {
+            
+            if results.count > 0 {
+                for item in results {
+                    managedObjectContext?.deleteObject(item as NSManagedObject)
+                }
+                
+               searchBox.text = "Task(s) removed, restart app for updated list" 
+            }
+            else {
+                searchBox.text = "Task not found"
+            }
+        }
+        
+    }
 }
