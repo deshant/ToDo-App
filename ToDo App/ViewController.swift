@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         getData()
         //insert()
     }
-    
+
     func getData() {
         let entityDescription =
         NSEntityDescription.entityForName("Tasks",
@@ -65,25 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
     }
-    func insert(){
-        let entityDescription =
-        NSEntityDescription.entityForName("Tasks",
-            inManagedObjectContext: managedObjectContext!)
-        
-        let task = Tasks(entity: entityDescription!,
-            insertIntoManagedObjectContext: managedObjectContext)
-        
-        task.title = "Test"
-        task.notes = "works"
-        
-        var error: NSError?
-        
-        managedObjectContext?.save(&error)
-        
-        if let err = error {
-        }
-    }
-    
     //data source methods
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -114,6 +95,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let SegueIdentifier = "ShowTaskSegue"
     let SearchSegue = "searchSegue"
+    let AddTaskSegue = "AddTaskSegue"
     
     // Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -130,6 +112,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let destination = segue.destinationViewController as? TaskViewController {
                 destination.Title = foundTitle
                 destination.Note = foundNote
+            }
+        }
+        else if segue.identifier == AddTaskSegue {
+            if let destination = segue.destinationViewController as? AddTaskController {
+                
             }
         }
     }
@@ -196,7 +183,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     managedObjectContext?.deleteObject(item as NSManagedObject)
                 }
                 
-               searchBox.text = "Task(s) removed, restart app for updated list" 
+               searchBox.text = "Task(s) removed" 
             }
             else {
                 searchBox.text = "Task not found"

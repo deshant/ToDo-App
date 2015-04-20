@@ -16,6 +16,7 @@
 		96986F6D1AE16A09000B663C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96986F6B1AE16A09000B663C /* LaunchScreen.xib */; };
 		96986F791AE16A0A000B663C /* ToDo_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96986F781AE16A0A000B663C /* ToDo_AppTests.swift */; };
 		9698FA8D1AE3725E0057F6B0 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9698FA8C1AE3725E0057F6B0 /* Tasks.swift */; };
+		96A401B61AE3A55C008A4DEC /* AddTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A401B51AE3A55C008A4DEC /* AddTaskController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		96986F771AE16A0A000B663C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96986F781AE16A0A000B663C /* ToDo_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo_AppTests.swift; sourceTree = "<group>"; };
 		9698FA8C1AE3725E0057F6B0 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		96A401B51AE3A55C008A4DEC /* AddTaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				96986F6B1AE16A09000B663C /* LaunchScreen.xib */,
 				96986F611AE16A09000B663C /* ToDo_App.xcdatamodeld */,
 				9698FA8C1AE3725E0057F6B0 /* Tasks.swift */,
+				96A401B51AE3A55C008A4DEC /* AddTaskController.swift */,
 				96986F5D1AE16A08000B663C /* Supporting Files */,
 			);
 			path = "ToDo App";
@@ -223,6 +226,7 @@
 			files = (
 				96986F651AE16A09000B663C /* ViewController.swift in Sources */,
 				960CA1AD1AE2737500D701BF /* TaskViewController.swift in Sources */,
+				96A401B61AE3A55C008A4DEC /* AddTaskController.swift in Sources */,
 				96986F601AE16A08000B663C /* AppDelegate.swift in Sources */,
 				9698FA8D1AE3725E0057F6B0 /* Tasks.swift in Sources */,
 				96986F631AE16A09000B663C /* ToDo_App.xcdatamodeld in Sources */,
