@@ -17,6 +17,7 @@ class AddTaskController: UIViewController {
     @IBOutlet weak var Title: UITextField!
     @IBOutlet weak var Notes: UITextField!
     @IBOutlet weak var Status: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Status.text = ""

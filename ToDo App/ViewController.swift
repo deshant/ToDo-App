@@ -33,8 +33,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         getData()
         //insert()
     }
+    override func viewWillAppear(animated: Bool) {
+        getData()
+        tableView.reloadData()
+    }
 
     func getData() {
+        titleArray.removeAll()
+        notesArray.removeAll()
         let entityDescription =
         NSEntityDescription.entityForName("Tasks",
             inManagedObjectContext: managedObjectContext!)
@@ -183,7 +189,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     managedObjectContext?.deleteObject(item as NSManagedObject)
                 }
                 
-               searchBox.text = "Task(s) removed" 
+               searchBox.text = "Task(s) removed"
+                getData()
+                tableView.reloadData()
             }
             else {
                 searchBox.text = "Task not found"
